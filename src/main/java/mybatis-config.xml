@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+    PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<properties resource="dbConfig.properties" /> 
+	<environments default="standalone">
+		<environment id="standalone">
+			<transactionManager type="JDBC" />
+			<dataSource type="com.sopango.common.C3P0DataSourceFactory">
+				<property name="driverClass" value="${jdbc.driver}" />
+				<property name="jdbcUrl" value="${jdbc.driverUrl}" />
+				<property name="user" value="${jdbc.user}" />
+				<property name="password" value="${jdbc.password}" />
+				<property name="autoCommitOnClose" value="${cpool.autoCommitOnClose}" />
+				<property name="checkoutTimeout" value="${cpool.checkoutTimeout}" />
+				<property name="initialPoolSize" value="${cpool.initialPoolSize}" />
+				<property name="minPoolSize" value="${cpool.minPoolSize}" />
+				<property name="maxPoolSize" value="${cpool.maxPoolSize}" />
+				<property name="maxIdleTime" value="${cpool.maxIdleTime}" />
+				<property name="acquireIncrement" value="${cpool.acquireIncrement}" />
+				<property name="maxIdleTimeExcessConnections" value="${cpool.maxIdleTimeExcessConnections}" />
+				<property name="automaticTestTable" value="${cpool.testTable}" />
+				<property name="idleConnectionTestPeriod" value="${cpool.idleConnectionTestPeriod}" />
+				<property name="acquireRetryAttempts" value="${cpool.acquireRetryAttempts}" />
+				<property name="breakAfterAcquireFailure" value="${cpool.breakAfterAcquireFailure}" />
+				<property name="maxStatements" value="${cpool.maxStatements}" />
+				<property name="maxStatementsPerConnection" value="${cpool.maxStatementsPerConnection}" />
+			</dataSource>
+		</environment>
+	</environments>
+</configuration>
