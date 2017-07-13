@@ -65,10 +65,4 @@ public class RedisPool {
             jedis.close();
         }
     }
-
-    public static void main(String[] args) {
-        Jedis jedis = RedisPool.getJedis();
-        System.out.println(jedis.getDB());
-        RedisPool.close(jedis);
-    }
 }

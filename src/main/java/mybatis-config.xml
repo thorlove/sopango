@@ -3,8 +3,10 @@
     PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
-
 	<properties resource="dbConfig.properties" /> 
+    <settings>  
+        <setting name="logImpl" value="LOG4J" />    
+    </settings>	
 	<environments default="standalone">
 		<environment id="standalone">
 			<transactionManager type="JDBC" />
@@ -20,7 +22,6 @@
 				<property name="maxPoolSize" value="${cpool.maxPoolSize}" />
 				<property name="maxIdleTime" value="${cpool.maxIdleTime}" />
 				<property name="acquireIncrement" value="${cpool.acquireIncrement}" />
-				<property name="maxIdleTimeExcessConnections" value="${cpool.maxIdleTimeExcessConnections}" />
 				<property name="automaticTestTable" value="${cpool.testTable}" />
 				<property name="idleConnectionTestPeriod" value="${cpool.idleConnectionTestPeriod}" />
 				<property name="acquireRetryAttempts" value="${cpool.acquireRetryAttempts}" />
@@ -30,4 +31,9 @@
 			</dataSource>
 		</environment>
 	</environments>
+	<mappers>  
+        <mapper class="com.sopango.dao.IAvaiukDao"/>  
+        <mapper class="com.sopango.dao.IShareDataDao"/>  
+        <mapper class="com.sopango.dao.IUserInfoDao"/>  
+    </mappers>  
 </configuration>

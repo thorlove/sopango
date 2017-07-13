@@ -12,8 +12,8 @@
 		<c3p0.version>0.9.1.2</c3p0.version>
 		<mybatis.version>3.4.1</mybatis.version>
 		<mysql.connector.version>5.1.30</mysql.connector.version>
+		<log4j.version>1.2.14</log4j.version>
 	</properties>
-
 	<dependencies>
 		<dependency>
 			<groupId>junit</groupId>
@@ -41,9 +41,9 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-		  <groupId>log4j</groupId>
-		  <artifactId>log4j</artifactId>
-		  <version>1.2.9</version>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -52,9 +52,42 @@
 			<scope>compile</scope>
 		</dependency>
 		<dependency>
-		  <groupId>commons-httpclient</groupId>
-		  <artifactId>commons-httpclient</artifactId>
-		  <version>3.1</version>
+		  <groupId>com.squareup.okhttp3</groupId>
+		  <artifactId>okhttp</artifactId>
+		  <version>3.8.1</version>
 		</dependency>
+		<dependency>
+			<groupId>commons-lang</groupId>
+			<artifactId>commons-lang</artifactId>
+			<version>2.6</version>
+		</dependency>
+		<dependency>
+		  <groupId>com.alibaba</groupId>
+		  <artifactId>fastjson</artifactId>
+		  <version>1.2.21</version>
+		</dependency>			
 	</dependencies>
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+				    <groupId>org.apache.maven.plugins</groupId>
+				    <artifactId>maven-jar-plugin</artifactId>
+				    <configuration>
+				        <source>1.8</source>
+				        <target>1.8</target>
+				        <archive>
+				            <manifest>
+				                <mainClass>com.sopango.App</mainClass>
+				                <addClasspath>true</addClasspath>
+				            <classpathPrefix>lib/</classpathPrefix>
+				            </manifest>
+				        </archive>
+				        <classesDirectory>
+				        </classesDirectory>
+				    </configuration>
+				</plugin>
+			</plugins>    
+		</pluginManagement>
+	</build>
 </project>

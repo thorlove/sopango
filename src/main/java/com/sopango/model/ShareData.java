@@ -8,14 +8,15 @@ public class ShareData implements Serializable{
     
     private Long id;
     private String title;
-    private String shareid;
+    private Long shareid;
     private Long uinfo_id;
     private String category;
-    private String album_id;
-    private Date feed_time;
+    private Long album_id;
+    private Long feed_time;
     private Integer filecount;
     private Long filesize;
     private Integer dir_cnt;
+    private String filePath;
     
     public Long getId() {
         return id;
@@ -29,10 +30,10 @@ public class ShareData implements Serializable{
     public void setTitle(String title) {
         this.title = title;
     }
-    public String getShareid() {
+    public Long getShareid() {
         return shareid;
     }
-    public void setShareid(String shareid) {
+    public void setShareid(Long shareid) {
         this.shareid = shareid;
     }
     public Long getUinfo_id() {
@@ -47,16 +48,16 @@ public class ShareData implements Serializable{
     public void setCategory(String category) {
         this.category = category;
     }
-    public String getAlbum_id() {
+    public Long getAlbum_id() {
         return album_id;
     }
-    public void setAlbum_id(String album_id) {
+    public void setAlbum_id(Long album_id) {
         this.album_id = album_id;
     }
-    public Date getFeed_time() {
+    public Long getFeed_time() {
         return feed_time;
     }
-    public void setFeed_time(Date feed_time) {
+    public void setFeed_time(Long feed_time) {
         this.feed_time = feed_time;
     }
     public Integer getFilecount() {
@@ -76,6 +77,20 @@ public class ShareData implements Serializable{
     }
     public void setDir_cnt(Integer dir_cnt) {
         this.dir_cnt = dir_cnt;
+    }
+    public String getFilePath() {
+        return filePath;
+    }
+    public void setFilePath(String filePath) {
+        this.filePath = filePath;
+    }
+    @Override
+    public String toString() {
+        return "ShareData [id=" + id + ", title=" + title + ", shareid="
+                + shareid + ", uinfo_id=" + uinfo_id + ", category=" + category
+                + ", album_id=" + album_id + ", feed_time=" + feed_time
+                + ", filecount=" + filecount + ", filesize=" + filesize
+                + ", dir_cnt=" + dir_cnt + ", filePath=" + filePath + "]";
     }
 
 }

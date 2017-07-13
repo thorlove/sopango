@@ -9,6 +9,10 @@ public class UserInfo implements Serializable{
     private Long uk;
     private String uname;
     private String avatar_url;
+    private Integer fans_count;
+    private Integer follow_count;
+    private Integer pubshare_count;
+    private Integer album_count;
     public Long getId() {
         return id;
     }
@@ -34,5 +38,41 @@ public class UserInfo implements Serializable{
         this.avatar_url = avatar_url;
     }
     
+    
+    public Integer getFans_count() {
+        return fans_count;
+    }
+    public void setFans_count(Integer fans_count) {
+        this.fans_count = fans_count;
+    }
+    public Integer getFollow_count() {
+        return follow_count;
+    }
+    public void setFollow_count(Integer follow_count) {
+        this.follow_count = follow_count;
+    }
+    public Integer getPubshare_count() {
+        return pubshare_count;
+    }
+    public void setPubshare_count(Integer pubshare_count) {
+        this.pubshare_count = pubshare_count;
+    }
+    public Integer getAlbum_count() {
+        return album_count;
+    }
+    public void setAlbum_count(Integer album_count) {
+        this.album_count = album_count;
+    }
+    public static long getSerialversionuid() {
+        return serialVersionUID;
+    }
+    
+    @Override
+    public String toString() {
+        return "UserInfo [id=" + id + ", uk=" + uk + ", uname=" + uname
+                + ", avatar_url=" + avatar_url + ", fans_count=" + fans_count
+                + ", follow_count=" + follow_count + ", pubshare_count="
+                + pubshare_count + ", album_count=" + album_count + "]";
+    }
     
 }

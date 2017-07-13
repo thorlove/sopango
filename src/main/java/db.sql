@@ -17,7 +17,7 @@ SET FOREIGN_KEY_CHECKS=0;
 -- ----------------------------
 DROP TABLE IF EXISTS `pan_avaiuk`;
 CREATE TABLE `pan_avaiuk` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `uk` bigint(20) DEFAULT NULL,
   `flag` int(1) DEFAULT '0',
   PRIMARY KEY (`id`)
@@ -28,7 +28,7 @@ CREATE TABLE `pan_avaiuk` (
 -- ----------------------------
 DROP TABLE IF EXISTS `pan_sharedata`;
 CREATE TABLE `pan_sharedata` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `title` varchar(255) DEFAULT NULL,
   `shareid` varchar(64) DEFAULT NULL,
   `uinfo_id` bigint(20) DEFAULT NULL,
@@ -48,7 +48,7 @@ CREATE TABLE `pan_sharedata` (
 -- ----------------------------
 DROP TABLE IF EXISTS `pan_uinfo`;
 CREATE TABLE `pan_uinfo` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `id` bigint(20) NOT NULL,
   `uk` bigint(20) DEFAULT NULL,
   `uname` varchar(255) DEFAULT NULL,
   `avatar_url` varchar(255) DEFAULT NULL,
