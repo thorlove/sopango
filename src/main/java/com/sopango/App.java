@@ -3,7 +3,6 @@ package com.sopango;
 import java.io.IOException;
 import java.io.Reader;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -60,6 +59,7 @@ public class App {
     public static void main(String[] args) {
         App app = new App();
         app.startIndex();
+//        app.insertAlbum(1112219283L, 129732510768224935L);
 //        app.indexResource(Long.valueOf("2889076181").longValue());
     }
 
@@ -314,26 +314,34 @@ public class App {
     }
     
     public void insertAlbum(Long uk,Long ablum_id){
+        try {
+            Thread.sleep(60000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }        
         String real_url = String.format(ALBUM_URL, uk,ablum_id);
         YunData yunData = DataUtil.getYunData(real_url);
         if (yunData != null) {
-            List<AlbumData> albumDataList = yunData.getAlbumlist().getList();
-            for (AlbumData album : albumDataList) {
-                ShareData share = new ShareData();
-                share.setId(PKGen.nextId());
-                share.setTitle(album.getServer_filename());
-                share.setUinfo_id(uinfoId);
-                share.setCategory(album.getCategory());
-                share.setAlbum_id(ablum_id);
-                share.setFeed_time(album.getAdd_time());
-                share.setFilecount(1);
-                share.setDir_cnt(0);
-                share.setFilesize(album.getSize());
-                SqlSession session = sqlSessionFactory.openSession();
-                IShareDataDao shareDao = session.getMapper(IShareDataDao.class);
-                shareDao.save(share);
-                session.commit();session.close();
-            }        
+            List<AlbumData> albumDataList = null;
+			if(yunData.getAlbumlist()!=null){
+				albumDataList = yunData.getAlbumlist().getList();
+				for (AlbumData album : albumDataList) {
+					ShareData share = new ShareData();
+					share.setId(PKGen.nextId());
+					share.setTitle(album.getServer_filename());
+					share.setUinfo_id(uinfoId);
+					share.setCategory(album.getCategory());
+					share.setAlbum_id(ablum_id);
+					share.setFeed_time(album.getAdd_time());
+					share.setFilecount(1);
+					share.setDir_cnt(0);
+					share.setFilesize(album.getSize());
+					SqlSession session = sqlSessionFactory.openSession();
+					IShareDataDao shareDao = session.getMapper(IShareDataDao.class);
+					shareDao.save(share);
+					session.commit();session.close();
+				}
+			}			
         }
     }
 }
